@@ -15,12 +15,11 @@ here
 
 Use assignment_test.py to test your functions
 """
-
-import math
 import tkinter as tk
 from tkinter import *
+import math
 
-win = tk.Tk()
+win=tk.Tk()
 
 titleLabel = Label(win, text = "Binary/Decimal Converter!")
 state1 = IntVar()
@@ -37,7 +36,6 @@ def binary_to_decimal(binary):
     # return value is an integer decimal
     decimal = 0
     print(binary)
-    """
     if binary[0] == 1:
         decimal = decimal + 128
     if binary[1] == 1:
@@ -55,7 +53,6 @@ def binary_to_decimal(binary):
         decimal = decimal + 2
     if binary[7] == 1:
         decimal = decimal + 1
-"""
     return decimal 
 
 def decimal_to_binary(decimal):
