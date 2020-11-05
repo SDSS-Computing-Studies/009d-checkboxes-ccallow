@@ -6,12 +6,9 @@ Recall that binary is a system of counting based on powers of 2.
 00000010 = 2
 00001110 = 14
 
-Create a converter that will convert binary to decimal or decimal to
-binary using the interface shown in task1.png.  Use the shell that
-has been started in task1.py
-This is an incomplete program.  You will need to add onto it, 
-but you should not change any of the commands that are already 
-here
+Create a converter that will convert binary to decimal or decimal to binary using the interface shown in task1.png
+Use the shell that has been started in task1.py. This is an incomplete program.  You will need to add onto it, 
+but you should not change any of the commands that are already here
 
 Use assignment_test.py to test your functions
 """
@@ -35,13 +32,11 @@ def binary_to_decimal(binary):
     # binary is a tuple of length 8
     # return value is an integer decimal
     decimal = 0
-    print(binary)
     if binary[0] == 1:
         decimal = decimal + 128
     if binary[1] == 1:
         decimal = decimal + 64
     if binary[2] == 1:
-        print(binary[2])
         decimal = decimal + 32
     if binary[3] == 1:
         decimal = decimal + 16
@@ -97,9 +92,8 @@ def decimal_to_binary(decimal):
 
 
 def get_binary():
-    # function should read the entry widget and generate an integer
-    # this integer will be used as an input parameter for decimal to binary and the result updated
-    # in the 8 checkboxes
+    # function should read the entry widget and generate an integer which will be used as an input
+    #parameter for decimal to binary and the result updated in the 8 checkboxes
     decimal = entryBox.get()
     binary = decimal_to_binary(decimal)
     state8.set(binary[0])
@@ -111,12 +105,9 @@ def get_binary():
     state2.set(binary[6])
     state1.set(binary[7])
 
-
-
 def get_decimal():
     # function should read the checkboxes and generate a tuple called binary of length 8 that has 1's and 0's
-    # this tuple will be used as an input parameter for binary_to_decimal and the result updated
-    # in the entry box
+    # this tuple will be used as an input parameter for binary_to_decimal and the result updated in the entry box
     binary = []
     binary.append(state8.get())
     binary.append(state7.get())
@@ -129,7 +120,6 @@ def get_decimal():
    
     decimal = binary_to_decimal(binary)
     blank.set(decimal)
-
 blank = StringVar()
 blank.set("")
 
@@ -144,8 +134,6 @@ w8 = Checkbutton (win, variable = state1)
 entryBox = Entry (win, textvariable = blank)
 b1 = Button(win, text="Convert to Binary", command=get_binary)
 b2 = Button(win, text="Convert to Decimal", command=get_decimal)
-
-#Position of Widgets
 titleLabel.grid(row = 1, column = 2, columnspan = 6)
 w1.grid(row = 2, column = 1)
 w2.grid(row = 2, column = 2)
@@ -158,9 +146,5 @@ w8.grid(row = 2, column = 8)
 b1.grid(row = 3, column = 1, columnspan = 4)
 b2.grid(row = 3, column = 5, columnspan = 4)
 entryBox.grid(row = 4, column = 2, columnspan = 6)
-
-
-
-
 
 win.mainloop()
