@@ -11,14 +11,10 @@ from tkinter import *
 import math
 win=tk.Tk()
 titleLabel = Label(win, text = "Binary/Decimal Converter!")
-state1 = IntVar()
-state2 = IntVar()
-state3 = IntVar()
-state4 = IntVar()
-state5 = IntVar()
-state6 = IntVar()
-state7 = IntVar()
-state8 = IntVar()
+state = []
+for i in range(1,9):
+    state.append( IntVar() )
+
 def binary_to_decimal(binary):
     # binary is a tuple of length 8
     # return value is an integer decimal
@@ -83,38 +79,27 @@ def get_binary():
     #parameter for decimal to binary and the result updated in the 8 checkboxes
     decimal = entryBox.get()
     binary = decimal_to_binary(decimal)
-    state8.set(binary[0])
-    state7.set(binary[1])
-    state6.set(binary[2])
-    state5.set(binary[3])
-    state4.set(binary[4])
-    state3.set(binary[5])
-    state2.set(binary[6])
-    state1.set(binary[7])
+    state[8].set(binary[0])
+    state[7].set(binary[1])
+    state[6].set(binary[2])
+    state[5].set(binary[3])
+    state[4].set(binary[4])
+    state[3].set(binary[5])
+    state[2].set(binary[6])
+    state[1].set(binary[7])
 def get_decimal():
     # function should read the checkboxes and generate a tuple called binary of length 8 that has 1's and 0's
     # this tuple will be used as an input parameter for binary_to_decimal and the result updated in the entry box
     binary = []
-    binary.append(state8.get())
-    binary.append(state7.get())
-    binary.append(state6.get())
-    binary.append(state5.get())
-    binary.append(state4.get())
-    binary.append(state3.get())
-    binary.append(state2.get())
-    binary.append(state1.get())
+    for i in range(1,9):
+        binary.append(state[i].get)
     decimal = binary_to_decimal(binary)
     blank.set(decimal)
 blank = StringVar()
 blank.set("")
-w1 = Checkbutton (win, variable = state8)
-w2 = Checkbutton (win, variable = state7)
-w3 = Checkbutton (win, variable = state6)
-w4 = Checkbutton (win, variable = state5)
-w5 = Checkbutton (win, variable = state4)
-w6 = Checkbutton (win, variable = state3)
-w7 = Checkbutton (win, variable = state2)
-w8 = Checkbutton (win, variable = state1)
+cbs = []
+for i in range(1,9):
+    cbs.append( Checkbutton(win, variable = state[i]))
 entryBox = Entry (win, textvariable = blank)
 b1 = Button(win, text="Convert to Binary", command=get_binary)
 b2 = Button(win, text="Convert to Decimal", command=get_decimal)
