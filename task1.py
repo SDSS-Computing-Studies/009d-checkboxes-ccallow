@@ -32,6 +32,10 @@ def binary_to_decimal(binary):
     # binary is a tuple of length 8
     # return value is an integer decimal
     decimal = 0
+<<<<<<< Updated upstream
+=======
+    print(binary)
+>>>>>>> Stashed changes
     if binary[0] == 1:
         decimal = decimal + 128
     if binary[1] == 1:
